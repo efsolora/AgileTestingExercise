@@ -7,11 +7,18 @@ import net.serenitybdd.screenplay.actions.Open;
 
 public class AbrirPaginaInicial implements Task {
 
-    private PaginaInicial paginaInicial;
+    private String paginaInicial;
+    public AbrirPaginaInicial conLaPagina(String paginaInicial){
+        this.paginaInicial = paginaInicial;
+        return this;
+    }
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                Open.browserOn(paginaInicial)
+                Open.url(paginaInicial)
         );
+    }
+    public static AbrirPaginaInicial abrirPaginaInicial(){
+        return new AbrirPaginaInicial();
     }
 }
