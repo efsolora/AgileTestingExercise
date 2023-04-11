@@ -13,12 +13,12 @@ import java.util.List;
 import static com.sofkau.questions.automationexercise.MensajeNombre.mensajeNombre;
 import static com.sofkau.tasks.AbrirPaginaInicial.abrirPaginaInicial;
 import static com.sofkau.tasks.automationexercise.IniciarSesion.iniciarSesion;
-import static com.sofkau.util.LecturaFileProperties.getUserPasword;
+
 import static com.sofkau.util.LoadCredentials.getCredentials;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 import static org.hamcrest.CoreMatchers.equalTo;
-import static com.sofkau.util.LecturaFileProperties.getUserPasword;
+
 
 public class InicioDeSesionAutomationExerciseStepDefinition extends SetUp {
     public static Logger LOGGER = Logger.getLogger(String.valueOf((InicioDeSesionAutomationExerciseStepDefinition.class)));
@@ -56,7 +56,7 @@ private List<String> credenciales = getCredentials("automation");
            try {
                 theActorInTheSpotlight().attemptsTo(
                         iniciarSesion()
-                                .conElUsuario(credenciales.get(0))
+                                .conElUsuario(credenciales .get(0))
                                 .yConLaContrasenna(credenciales.get(1))
                 );
             } catch (Exception e) {
