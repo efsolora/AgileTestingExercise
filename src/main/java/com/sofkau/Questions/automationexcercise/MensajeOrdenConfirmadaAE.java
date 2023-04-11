@@ -5,15 +5,15 @@ import net.serenitybdd.screenplay.Question;
 
 import static com.sofkau.ui.automationexcercise.ConfirmarCompra.MENSAJE_ORDER;
 
-public class MensajeOrdenPlaced implements Question<String> {
+public class MensajeOrdenConfirmadaAE implements Question<String> {
 
     @Override
     public String answeredBy(Actor actor) {
         return MENSAJE_ORDER.resolveFor(actor).getText();
     }
 
-    public static MensajeOrdenPlaced mensajeOrdenPlaced(){
-        return new MensajeOrdenPlaced();
+    public static MensajeOrdenConfirmadaAE mensajeOrdenPlaced(){
+        return new MensajeOrdenConfirmadaAE();
     }
 }
 
