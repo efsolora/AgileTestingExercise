@@ -1,8 +1,8 @@
 package com.sofkau.stepdefinitions.exito;
 import com.sofkau.setup.SetUp;
-import io.cucumber.java.es.Cuando;
-import io.cucumber.java.es.Dado;
-import io.cucumber.java.es.Entonces;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import org.apache.log4j.Logger;
 import org.junit.jupiter.api.Assertions;
 import static com.sofkau.questions.exito.MensajeConfirmacionExito.mensajeConfirmacion;
@@ -15,7 +15,7 @@ import static org.hamcrest.CoreMatchers.equalTo;
 public class InicioSesionExitoStepDefinitions extends SetUp {
     public static Logger LOGGER = Logger.getLogger(InicioSesionExitoStepDefinitions.class);
 
-    @Dado("que el usuario esta en la pagina")
+    @Given("que el usuario esta en la pagina")
     public void que_el_usuario_esta_en_la_pagina() {
         try {
             configurarNavegador();
@@ -32,7 +32,7 @@ public class InicioSesionExitoStepDefinitions extends SetUp {
         }
     }
 
-    @Cuando("ingresa correo y contrasenna validas")
+    @When("ingresa correo y contrasenna validas")
     public void ingresa_correo_y_contrasenna_validas() {
         try {
             theActorInTheSpotlight().attemptsTo(
@@ -48,7 +48,7 @@ public class InicioSesionExitoStepDefinitions extends SetUp {
 
     }
 
-    @Entonces("se ve un mensaje con el nombre del usuario")
+    @Then("se ve un mensaje con el nombre del usuario")
     public void se_ve_un_mensaje_con_el_nombre_del_usuario() {
         try {
             theActorInTheSpotlight().should(
