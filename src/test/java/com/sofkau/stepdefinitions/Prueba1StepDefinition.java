@@ -7,6 +7,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
 
+import static com.sofkau.tasks.AbrirPaginaInicial.abrirPaginaInicial;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
 public class Prueba1StepDefinition extends SetUp {
@@ -15,9 +16,10 @@ public class Prueba1StepDefinition extends SetUp {
 
     @Given("ola")
     public void ola() {
-        configurarNavegador("https://www.google.com/");
+        configurarNavegador();
         theActorInTheSpotlight().wasAbleTo(
-                new AbrirPaginaInicial()
+                abrirPaginaInicial()
+                        .conLaPagina("https://www.google.com/")
         );
     }
 
