@@ -24,7 +24,7 @@ public class SetUp {
     protected WebDriver webDriver;
 
 
-    private void setupUser( WebDriver webDriver) {
+    private void setupUser(WebDriver webDriver) {
         configurarDriver();
         OnStage.setTheStage(new OnlineCast());
         theActorCalled(ACTOR).can(BrowseTheWeb.with(webDriver));
@@ -36,7 +36,6 @@ public class SetUp {
         co.addArguments(SWITCHES);
         WebDriverManager.chromedriver().setup();
         webDriver = new ChromeDriver(co);
-
     }
 
     private static void maximizar(WebDriver webDriver) {
