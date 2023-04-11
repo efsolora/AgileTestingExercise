@@ -6,7 +6,6 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.apache.log4j.Logger;
 import org.junit.jupiter.api.Assertions;
-import static com.sofkau.questions.exito.MensajeConfirmacionExito.mensajeConfirmacion;
 import static com.sofkau.tasks.AbrirPaginaInicial.abrirPaginaInicial;
 import static com.sofkau.tasks.exito.IniciarSesionExito.iniciarSesion;
 import static com.sofkau.ui.exito.PaginaInicialExito.TEXTO_ASSERTION;
@@ -55,7 +54,6 @@ public class InicioSesionExitoStepDefinitions extends SetUp {
         try {
             seeThat(ConsultaDeMensajes.isEqualTo(TEXTO_ASSERTION), equalTo("ACCOUNT CREATED!"));
             LOGGER.info("Realiza la peticion");
-            LOGGER.info(mensajeConfirmacion().toString() + " = Hola efrain");
         } catch (Exception e) {
             LOGGER.info(" fallo al momento de realizar la peticion");
             LOGGER.warn(e.getMessage());
