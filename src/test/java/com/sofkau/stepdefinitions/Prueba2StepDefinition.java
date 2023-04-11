@@ -12,7 +12,6 @@ public class Prueba2StepDefinition extends SetUp {
 
     @Given("wenas")
     public void wenas() {
-        configurarNavegador("https://automationexercise.com/");
         theActorInTheSpotlight().wasAbleTo(
                 new AbrirPaginaInicial()
         );
