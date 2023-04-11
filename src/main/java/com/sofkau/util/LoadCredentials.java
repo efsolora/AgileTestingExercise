@@ -32,4 +32,7 @@ public class LoadCredentials {
                 credentials.add(p.getProperty("PASSWORDFALABELLA"));
         }
     }
+
 }
+
+
