@@ -2,6 +2,7 @@ package com.sofkau.stepdefinitions.falabella;
 
 import com.sofkau.questions.falabella.MsjCompra;
 import com.sofkau.setup.SetUp;
+import com.sofkau.tasks.AbrirPaginaInicial;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -23,11 +24,21 @@ public class InicioSesionFalabellaStepDefinition extends SetUp {
     @Given("el usuario esta en la pagina principal falabella")
     public void elUsuarioEstaEnLaPaginaPrincipalFalabella() {
 
-        configurarNavegador();
-        theActorInTheSpotlight().wasAbleTo(
-                abrirPaginaInicial()
-                        .conLaPagina("https://www.falabella.com.co/falabella-co")
-        );
+        try {
+            configurarNavegador();
+            theActorInTheSpotlight().wasAbleTo(
+                    abrirPaginaInicial()
+                            .conLaPagina("https://www.falabella.com.co/falabella-co")
+            );
+            LOGGER.info("Incio de automatización flujo de compra falabella");
+
+        } catch (Exception e) {
+            LOGGER.info(" Fallo la configuracion inicial");
+            LOGGER.warning(e.getMessage());
+            Assertions.fail();
+            quitarDriver();
+        }
+
     }
 
     @When("navega hasta el incio de sesion")
