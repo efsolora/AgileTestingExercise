@@ -1,4 +1,5 @@
 package com.sofkau.stepdefinitions.exito;
+import com.sofkau.questions.ConsultaDeMensajes;
 import com.sofkau.setup.SetUp;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -8,6 +9,7 @@ import org.junit.jupiter.api.Assertions;
 import static com.sofkau.questions.exito.MensajeConfirmacionExito.mensajeConfirmacion;
 import static com.sofkau.tasks.AbrirPaginaInicial.abrirPaginaInicial;
 import static com.sofkau.tasks.exito.IniciarSesionExito.iniciarSesion;
+import static com.sofkau.ui.exito.PaginaInicialExito.TEXTO_ASSERTION;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 import static org.hamcrest.CoreMatchers.equalTo;
@@ -51,8 +53,7 @@ public class InicioSesionExitoStepDefinitions extends SetUp {
     @Then("se ve un mensaje con el nombre del usuario")
     public void se_ve_un_mensaje_con_el_nombre_del_usuario() {
         try {
-            theActorInTheSpotlight().should(
-                    seeThat(mensajeConfirmacion(), equalTo("Hola efrain")));
+            seeThat(ConsultaDeMensajes.isEqualTo(TEXTO_ASSERTION), equalTo("ACCOUNT CREATED!"));
             LOGGER.info("Realiza la peticion");
             LOGGER.info(mensajeConfirmacion().toString() + " = Hola efrain");
         } catch (Exception e) {
