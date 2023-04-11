@@ -24,7 +24,7 @@ public class SetUp {
     protected WebDriver webDriver;
 
 
-    private void setupUser(WebDriver webDriver) {
+    private void setupUser() {
         configurarDriver();
         OnStage.setTheStage(new OnlineCast());
         theActorCalled(ACTOR).can(BrowseTheWeb.with(webDriver));
@@ -33,7 +33,7 @@ public class SetUp {
 
     private void configurarDriver() {
         ChromeOptions co = new ChromeOptions();
-        co.addArguments(SWITCHES);
+        co.addArguments(SWITCHES, "--incognito");
         WebDriverManager.chromedriver().setup();
         webDriver = new ChromeDriver(co);
     }
@@ -47,7 +47,7 @@ public class SetUp {
     }
 
     protected void configurarNavegador() {
-        setupUser(webDriver);
+        setupUser();
         setUplog4j();
     }
 
