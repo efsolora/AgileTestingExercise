@@ -1,7 +1,7 @@
 package com.sofkau.tasks.automationexcercise;
 
 import com.github.javafaker.Faker;
-import com.sofkau.ui.automationexcercise.ProcesoCompra;
+import com.sofkau.ui.automationexercise.ProcesoCompra;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;

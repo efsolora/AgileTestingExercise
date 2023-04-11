@@ -29,6 +29,8 @@ public class PaginaRegistro extends PageObject {
 
     public static final Target BOTON_SINGUP_NEW_USER = Target.the("Botón SingUp")
             .located(By.xpath("(//button[normalize-space()='Signup'])[1]\n"));
+    public static final Target BOTON_INICIAR = Target.the("Boton ir al registro")
+            .located(By.xpath("(//a[normalize-space()='Signup / Login'])[1]"));
 
 
 

@@ -1,4 +1,4 @@
-package com.sofkau.runners.automationexcercise;
+package com.sofkau.runners.automationexercise;
 
 import io.cucumber.junit.CucumberOptions;
 import net.serenitybdd.cucumber.CucumberWithSerenity;

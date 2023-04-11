@@ -1,4 +1,4 @@
-package com.sofkau.stepdefinitions.automationexcercise;
+package com.sofkau.stepdefinitions.automationexercise;
 
 import com.sofkau.setup.SetUp;
 import io.cucumber.java.en.Given;
@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.util.List;
 
 
-import static com.sofkau.Questions.automationexcercise.MensajeOrdenConfirmadaAE.mensajeOrdenPlaced;
+import static com.sofkau.questions.automationexercise.MensajeOrdenConfirmadaAE.mensajeOrdenPlaced;
 import static com.sofkau.tasks.AbrirPaginaInicial.abrirPaginaInicial;
 import static com.sofkau.tasks.automationexcercise.IniciarSesion.iniciarSesion;
 import static com.sofkau.tasks.automationexcercise.RealizarCompra.realizarCompra;
