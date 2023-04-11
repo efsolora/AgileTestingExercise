@@ -1,11 +1,12 @@
 package com.sofkau.stepdefinitions.productStoreStepDefinition;
 
-import com.jcraft.jsch.Logger;
 import com.sofkau.setup.SetUp;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.jupiter.api.Assertions;
+
+import java.util.logging.Logger;
 
 import static com.sofkau.questions.productStoreQuestions.RespuestaLogOut.respuestaLogOut;
 import static com.sofkau.tasks.AbrirPaginaInicial.abrirPaginaInicial;
@@ -16,16 +17,18 @@ import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 import static org.hamcrest.CoreMatchers.equalTo;
 public class LogOutStepDefinition extends SetUp {
 
+    public static java.util.logging.Logger LOGGER = Logger.getLogger(String.valueOf(LogOutStepDefinition.class));
     @Given("que el usuario esta en la pagina principal")
     public void queElUsuarioEstaEnLaPaginaPrincipal() {
         try {
             configurarNavegador();
+            LOGGER.info("Se inicia la automatizacion");
             theActorInTheSpotlight().wasAbleTo(
                     abrirPaginaInicial()
                             .conLaPagina("https://www.demoblaze.com/index.html")
             );
         }catch (Exception e){
-
+            LOGGER.warning(e.getMessage());
         }
 
     }
@@ -38,7 +41,7 @@ public class LogOutStepDefinition extends SetUp {
                     logOut()
             );
         }catch (Exception e){
-
+            LOGGER.warning(e.getMessage());
         }
 
     }
@@ -50,8 +53,10 @@ public class LogOutStepDefinition extends SetUp {
                     seeThat(respuestaLogOut(),equalTo("PRODUCT STORE"))
             );
         }catch (Exception e){
+            LOGGER.warning(e.getMessage());
             Assertions.fail();
         }
         quitarDriver();
+        LOGGER.info("Fin de la automatizacion");
     }
 }
