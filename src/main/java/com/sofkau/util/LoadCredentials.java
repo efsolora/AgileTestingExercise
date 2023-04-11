@@ -26,6 +26,10 @@ public class LoadCredentials {
             case "automation":
                 credentials.add(p.getProperty("USERAUTOMATION"));
                 credentials.add(p.getProperty("PASSWORDAUTOMATION"));
+                break;
+            case "falabella":
+                credentials.add(p.getProperty("USERFALABELLA"));
+                credentials.add(p.getProperty("PASSWORDFALABELLA"));
         }
     }
 }
