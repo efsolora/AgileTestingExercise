@@ -18,25 +18,24 @@ import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
 
 public class SetUp {
     private static final String SWITCHES = "--remote-allow-origins=*";
-    private static final String ACTOR = "Juanes";
+    private static final String ACTOR = "BRYAN";
 
     @Managed()
     protected WebDriver webDriver;
 
 
-    private void setupUser( WebDriver webDriver,String BASE_URL) {
-        configurarDriver(BASE_URL);
+    private void setupUser(WebDriver webDriver) {
+        configurarDriver();
         OnStage.setTheStage(new OnlineCast());
         theActorCalled(ACTOR).can(BrowseTheWeb.with(webDriver));
         maximizar(webDriver);
     }
 
-    private void configurarDriver(String BASE_URL) {
+    private void configurarDriver() {
         ChromeOptions co = new ChromeOptions();
         co.addArguments(SWITCHES);
         WebDriverManager.chromedriver().setup();
         webDriver = new ChromeDriver(co);
-        webDriver.get(BASE_URL);
     }
 
     private static void maximizar(WebDriver webDriver) {
@@ -47,8 +46,8 @@ public class SetUp {
         webDriver.quit();
     }
 
-    protected void configurarNavegador(String BASE_URL) {
-        setupUser(webDriver,BASE_URL);
+    protected void configurarNavegador() {
+        setupUser(webDriver);
         setUplog4j();
     }
 
