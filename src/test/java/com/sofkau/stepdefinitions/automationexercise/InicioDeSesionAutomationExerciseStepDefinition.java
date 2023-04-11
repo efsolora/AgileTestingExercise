@@ -1,4 +1,4 @@
-package com.sofkau.stepdefinitions;
+package com.sofkau.stepdefinitions.automationexercise;
 
 import com.sofkau.setup.SetUp;
 import io.cucumber.java.en.Given;
@@ -7,16 +7,25 @@ import io.cucumber.java.en.When;
 import org.apache.log4j.Logger;
 import org.junit.jupiter.api.Assertions;
 
-import static com.sofkau.questions.MensajeNombre.mensajeNombre;
+import java.io.IOException;
+import java.util.List;
+
+import static com.sofkau.questions.automationexercise.MensajeNombre.mensajeNombre;
 import static com.sofkau.tasks.AbrirPaginaInicial.abrirPaginaInicial;
 import static com.sofkau.tasks.automationexercise.IniciarSesion.iniciarSesion;
+import static com.sofkau.util.LecturaFileProperties.getUserPasword;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 import static org.hamcrest.CoreMatchers.equalTo;
+import static com.sofkau.util.LecturaFileProperties.getUserPasword;
 
 public class InicioDeSesionAutomationExerciseStepDefinition extends SetUp {
     public static Logger LOGGER = Logger.getLogger(String.valueOf((InicioDeSesionAutomationExerciseStepDefinition.class)));
 
+private List<String> credenciales = getUserPasword();
+
+    public InicioDeSesionAutomationExerciseStepDefinition() throws IOException {
+    }
 
     @Given("que el usuario se encuentra en la pagina incial de automation exercise")
     public void que_el_usuario_se_encuentra_en_la_pagina_incial_de_automation_exercise(){
@@ -46,8 +55,8 @@ public class InicioDeSesionAutomationExerciseStepDefinition extends SetUp {
            try {
                 theActorInTheSpotlight().attemptsTo(
                         iniciarSesion()
-                                .conElUsuario("juan.pineda@gmail.com")
-                                .yConLaContrasenna("123456")
+                                .conElUsuario(credenciales.get(0))
+                                .yConLaContrasenna(credenciales.get(1))
                 );
             } catch (Exception e) {
                 LOGGER.info("Fallo al momento de hacer el login");

@@ -1,4 +1,4 @@
-package com.sofkau.ui;
+package com.sofkau.ui.automationexercise;
 
 import net.thucydides.core.pages.PageObject;
 

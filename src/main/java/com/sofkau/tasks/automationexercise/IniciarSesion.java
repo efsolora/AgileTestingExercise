@@ -1,11 +1,12 @@
-package com.sofkau.tasks;
+package com.sofkau.tasks.automationexercise;
 
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
 
-import static com.sofkau.ui.PaginaRegistro.*;
+import static com.sofkau.ui.automationexercise.PaginaRegistro.*;
+
 
 public class IniciarSesion implements Task {
 
@@ -30,8 +31,6 @@ public class IniciarSesion implements Task {
                 Click.on(BOTON_INICIAR_SESION)
         );
     }
-
-
 
 
     public static IniciarSesion iniciarSesion(){

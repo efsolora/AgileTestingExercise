@@ -1,4 +1,4 @@
-package com.sofkau.tasks;
+package com.sofkau.tasks.automationexercise;
 
 import com.sofkau.ui.PaginaInicial;
 import net.serenitybdd.screenplay.Actor;
