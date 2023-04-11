@@ -6,4 +6,4 @@ Feature: Inicio de sesion
   Scenario: Inicio de sesion
     Given el usuario esta en la pagina principal falabella
     When navega hasta el incio de sesion
-    Then debe observar un mensaje de registro exitoso
+    Then debe observar un mensaje de bienvenida

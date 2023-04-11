@@ -2,17 +2,20 @@ package com.sofkau.stepdefinitions.falabella;
 
 import com.sofkau.questions.falabella.MsjCompra;
 import com.sofkau.setup.SetUp;
-import com.sofkau.tasks.AbrirPaginaInicial;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.jupiter.api.Assertions;
 
+import java.io.IOException;
+import java.util.List;
 import java.util.logging.Logger;
 
 import static com.sofkau.tasks.AbrirPaginaInicial.abrirPaginaInicial;
 import static com.sofkau.tasks.falabella.NavegarAlInicioSesion.navegarAlInicioSesion;
 import static com.sofkau.ui.falabella.MensajeInicioSesion.MSJ_INICIO_SESION;
+import static com.sofkau.util.LoadCredentials.getCredentials;
+
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 import static org.hamcrest.Matchers.equalTo;
@@ -21,6 +24,11 @@ public class InicioSesionFalabellaStepDefinition extends SetUp {
 
     private static final Logger LOGGER = Logger.getLogger(String.valueOf(InicioSesionFalabellaStepDefinition.class));
 
+
+    private List<String> credenciales = getCredentials("falabella");
+
+    public InicioSesionFalabellaStepDefinition() throws IOException {
+    }
     @Given("el usuario esta en la pagina principal falabella")
     public void elUsuarioEstaEnLaPaginaPrincipalFalabella() {
 
@@ -46,8 +54,8 @@ public class InicioSesionFalabellaStepDefinition extends SetUp {
         try {
             theActorInTheSpotlight().attemptsTo(
                     navegarAlInicioSesion()
-                            .conElUsuario("ayolima05@gmail.com")
-                            .yConLaContrasenna("Contrasenia2045")
+                            .conElUsuario(credenciales.get(0))
+                            .yConLaContrasenna(credenciales.get(1))
             );
 
             LOGGER.info("Incio de sesión correcto");
@@ -60,13 +68,14 @@ public class InicioSesionFalabellaStepDefinition extends SetUp {
         }
     }
 
-    @Then("debe observar un mensaje de registro exitoso")
-    public void debeObservarUnMensajeDeRegistroExitoso() {
+    @Then("debe observar un mensaje de bienvenida")
+    public void debeObservarUnMensajeDeBienvenida() {
         try {
             theActorInTheSpotlight().should(
                     seeThat(MsjCompra.isEqualTo(MSJ_INICIO_SESION ), equalTo("Bienvenid@,"))
             );
             quitarDriver();
+            LOGGER.info("Prueba exitosa");
         } catch (Exception e){
             LOGGER.warning(e.getMessage());
             quitarDriver();
