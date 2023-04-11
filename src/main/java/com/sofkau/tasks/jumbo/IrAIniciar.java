@@ -4,10 +4,10 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 
-import static com.sofkau.ui.jumbo.HomePage.MI_CUENTA;
+import static com.sofkau.ui.jumbo.PaginaInicial.MI_CUENTA;
 
 
-public class GoToLogin implements Task {
+public class IrAIniciar implements Task {
 
     @Override
     public <T extends Actor> void performAs(T actor) {
@@ -16,7 +16,7 @@ public class GoToLogin implements Task {
         );
     }
 
-    public static GoToLogin goToLogin() {
-        return new GoToLogin();
+    public static IrAIniciar irAIniciar() {
+        return new IrAIniciar();
     }
 }

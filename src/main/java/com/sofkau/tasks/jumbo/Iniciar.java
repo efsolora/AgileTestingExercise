@@ -8,10 +8,10 @@ import net.serenitybdd.screenplay.actions.Enter;
 import java.io.FileInputStream;
 import java.util.Properties;
 
-import static com.sofkau.ui.jumbo.AccountPage.*;
+import static com.sofkau.ui.jumbo.PaginaCuenta.*;
 
 
-public class Login implements Task {
+public class Iniciar implements Task {
 
     @Override
     public <T extends Actor> void performAs(T actor) {
@@ -32,7 +32,7 @@ public class Login implements Task {
         );
     }
 
-    public static Login login() {
-        return new Login();
+    public static Iniciar iniciar() {
+        return new Iniciar();
     }
 }

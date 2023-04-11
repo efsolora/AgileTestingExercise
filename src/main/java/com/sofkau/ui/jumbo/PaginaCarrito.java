@@ -4,13 +4,13 @@ import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.screenplay.targets.Target;
 import org.openqa.selenium.By;
 
-public class CartPage extends PageObject {
-    public static Target CART_TITLE = Target.the("Cart title")
+public class PaginaCarrito extends PageObject {
+    public static Target TITULO_CARRITO = Target.the("Titulo carrito")
             .located(By.xpath("//p[text()='Mi Carrito']"));
 
-    public static Target CHECKBOX = Target.the("Checkbox field")
+    public static Target CAJA_CHECK = Target.the("Campo checkbox")
             .located(By.xpath("//span[contains(text(),'Al finalizar la compra')]"));
 
-    public static Target CHECKOUT_BTTN = Target.the("Finalize purchase button")
+    public static Target PAGAR_BTTN = Target.the("Boton finalizar compra")
             .located(By.xpath("(//span[text()='Finalizar compra']/ancestor::button)[1]"));
 }

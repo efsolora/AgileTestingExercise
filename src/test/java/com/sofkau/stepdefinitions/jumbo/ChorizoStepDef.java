@@ -8,22 +8,21 @@ import io.cucumber.java.en.When;
 import org.apache.log4j.Logger;
 import org.junit.jupiter.api.Assertions;
 
-import static com.sofkau.questions.jumbo.IsOrderDone.isOrderDone;
-import static com.sofkau.questions.jumbo.IsThereAValue.isThereAValue;
+import static com.sofkau.questions.jumbo.SeHizoOrden.seHizoOrden;
+import static com.sofkau.questions.jumbo.HayUnValor.hayUnValor;
 import static com.sofkau.tasks.AbrirPaginaInicial.abrirPaginaInicial;
-import static com.sofkau.tasks.jumbo.AddToCart.addToCart;
-import static com.sofkau.tasks.jumbo.GoToAddress.goToAddress;
-import static com.sofkau.tasks.jumbo.GoToCheckout.goToCheckout;
-import static com.sofkau.tasks.jumbo.GoToLogin.goToLogin;
-import static com.sofkau.tasks.jumbo.GoToPay.goToPay;
-import static com.sofkau.tasks.jumbo.Login.login;
-import static com.sofkau.tasks.jumbo.OrderSearch.orderSearch;
-import static com.sofkau.tasks.jumbo.SearchChorizo.searchChorizo;
-import static com.sofkau.tasks.jumbo.SetAddress.setAddress;
+import static com.sofkau.tasks.jumbo.AnnadirAlCarrito.annadirAlCarrito;
+import static com.sofkau.tasks.jumbo.IrADireccion.irADireccion;
+import static com.sofkau.tasks.jumbo.IrAPago.irAPago;
+import static com.sofkau.tasks.jumbo.IrAIniciar.irAIniciar;
+import static com.sofkau.tasks.jumbo.IrAPagar.irAPagar;
+import static com.sofkau.tasks.jumbo.Iniciar.iniciar;
+import static com.sofkau.tasks.jumbo.OrdenarBusqueda.ordenarBusqueda;
+import static com.sofkau.tasks.jumbo.BuscarChorizo.buscarChorizo;
+import static com.sofkau.tasks.jumbo.PonerDireccion.ponerDireccion;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
-import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.startsWith;
+import static org.hamcrest.Matchers.*;
 
 public class ChorizoStepDef extends SetUp {
     private final Logger log = Logger.getLogger(ChorizoStepDef.class);
@@ -50,8 +49,8 @@ public class ChorizoStepDef extends SetUp {
         try {
             log.info("Loggeando");
             theActorInTheSpotlight().wasAbleTo(
-                    goToLogin(),
-                    login()
+                    irAIniciar(),
+                    iniciar()
             );
         } catch (Exception e) {
             log.error("ERROR");
@@ -67,8 +66,8 @@ public class ChorizoStepDef extends SetUp {
         try {
             log.info("Direccion");
             theActorInTheSpotlight().wasAbleTo(
-                    goToAddress(),
-                    setAddress()
+                    irADireccion(),
+                    ponerDireccion()
             );
         } catch (Exception e) {
             log.error("ERROR");
@@ -84,8 +83,8 @@ public class ChorizoStepDef extends SetUp {
         try {
             log.info("Buscar Chorizo");
             theActorInTheSpotlight().attemptsTo(
-                    searchChorizo(),
-                    orderSearch()
+                    buscarChorizo(),
+                    ordenarBusqueda()
             );
         } catch (Exception e) {
             log.error("ERROR");
@@ -101,9 +100,9 @@ public class ChorizoStepDef extends SetUp {
         try {
             log.info("Seleccionar barato");
             theActorInTheSpotlight().attemptsTo(
-                    addToCart(),
-                    goToCheckout(),
-                    goToPay()
+                    annadirAlCarrito(),
+                    irAPago(),
+                    irAPagar()
             );
         } catch (Exception e) {
             log.error("ERROR");
@@ -118,8 +117,8 @@ public class ChorizoStepDef extends SetUp {
     public void sereRedireccionadoALaPaginaDePago() {
         try {
             theActorInTheSpotlight().should(
-                    seeThat(isOrderDone(), equalTo("Resumen de la compra")),
-                    seeThat(isThereAValue(), startsWith("$ "))
+                    seeThat(seHizoOrden(), equalTo("Resumen de la compra")),
+                    seeThat(hayUnValor(), startsWith("$ "))
             );
             log.info("Test pasado");
         } catch (Exception e) {
