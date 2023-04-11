@@ -1,8 +1,10 @@
-package com.sofkau.tasks;
+package com.sofkau.tasks.automationexercise;
+
 
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Open;
+
 
 public class AbrirPaginaInicial implements Task {
 

@@ -18,7 +18,7 @@ import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
 
 public class SetUp {
     private static final String SWITCHES = "--remote-allow-origins=*";
-    private static final String ACTOR = "Juanes";
+    private static final String ACTOR = "BRYAN";
 
     @Managed()
     protected WebDriver webDriver;
