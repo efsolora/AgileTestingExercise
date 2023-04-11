@@ -23,7 +23,7 @@ public class RegistroAutomationStepDefinition extends SetUp {
     private String nameUser = faker.name().username();
     private String password = faker.numerify("#######");
     private String email = faker.internet().emailAddress();
-    @Given("que el usuario esta en la pagina de inicio")
+    @Given("que el usuario esta en la pagina de inicioo")
     public void queElUsuarioEstaEnLaPaginaDeInicio() {
         configurarNavegador();
         theActorInTheSpotlight().wasAbleTo(

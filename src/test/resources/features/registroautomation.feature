@@ -5,7 +5,7 @@ Feature: Registro automation exercise
 
   @RegistroAutomation
   Scenario: Registro exitoso
-    Given que el usuario esta en la pagina de inicio
+    Given que el usuario esta en la pagina de inicioo
     When navega hasta la el formulario de registro
     And Llena todos los campos
     Then El usuario vera un mensaje de creacion exitosa
