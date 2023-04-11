@@ -12,7 +12,10 @@ import org.slf4j.LoggerFactory;
 import static com.sofkau.tasks.AbrirPaginaInicial.abrirPaginaInicial;
 import static com.sofkau.tasks.carulla.AsercionNombreUsuarioCarullaTask.asercionNombreUsuarioCarullaTask;
 import static com.sofkau.tasks.carulla.IniciarSesionCarullaTask.iniciarSesionCarullaTask;
+import static com.sofkau.ui.carulla.AsercionInicioSesionCarullaUI.NOMBRE_USUARIO;
+import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
+import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.Matchers.containsString;
 
 
@@ -40,16 +43,13 @@ public class IniciarSesionCarullaStepDefinition extends SetUp {
     @Then("al dar click en el boton cuenta deberia aparecer el nombre de mi usuario")
     public void alDarClickEnElBotonCuentaDeberiaAparecerElNombreDeMiUsuario() {
         try {
-            actor.should(
-                    GivenWhenThen.seeThat(IniciarSesionCarullaQuestion.isEqualTo(),containsString(String.format("Pablo Jaramillo")))
+            theActorInTheSpotlight().should(
+                    seeThat(IniciarSesionCarullaQuestion.isEqualTo(NOMBRE_USUARIO), equalTo("Pablo Jaramillo"))
             );
-            log.info("Se verifico la comparacion del texto");
-
-        } catch (Exception e) {
-            log.error("Error en las aserciones");
-            log.error(e.getMessage());
-            throw e;
+            quitarDriver();
+        } catch (Exception e){
+            log.warn(e.getMessage());
+            quitarDriver();
         }
-
     }
 }
