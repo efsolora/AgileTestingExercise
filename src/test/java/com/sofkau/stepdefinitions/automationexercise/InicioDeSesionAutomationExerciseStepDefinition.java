@@ -56,7 +56,7 @@ private List<String> credenciales = getCredentials("automation");
            try {
                 theActorInTheSpotlight().attemptsTo(
                         iniciarSesion()
-                                .conElUsuario(credenciales .get(0))
+                                .conElUsuario(credenciales.get(0))
                                 .yConLaContrasenna(credenciales.get(1))
                 );
             } catch (Exception e) {
