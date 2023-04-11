@@ -11,5 +11,5 @@ import org.junit.runner.RunWith;
         glue = {"com.sofkau.stepdefinitions"},
         tags = {""}
 )
-public class RegistroTest {
+public class CompraTest {
 }

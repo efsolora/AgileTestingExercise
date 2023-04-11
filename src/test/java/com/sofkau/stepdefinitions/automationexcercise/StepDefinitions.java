@@ -12,7 +12,7 @@ import java.util.List;
 
 
 import static com.sofkau.Questions.automationexcercise.MensajeOrdenConfirmadaAE.mensajeOrdenPlaced;
-import static com.sofkau.tasks.AbrirPaginaInicial.abrirPaginaInicial;
+import static com.sofkau.tasks.automationexcercise.AbrirPaginaInicial.abrirPaginaInicial;
 import static com.sofkau.tasks.automationexcercise.IniciarSesion.iniciarSesion;
 import static com.sofkau.tasks.automationexcercise.RealizarCompra.realizarCompra;
 import static com.sofkau.util.LoadCredentials.getCredentials;
